@@ -3,9 +3,7 @@
 var sen = ee.ImageCollection("COPERNICUS/S2_SR")
           .filterDate('2021-01-01', '2021-12-31') // You date
           .filterBounds(geometry) // Your goemtry
-          
-          .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 10))
-          
+          .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 10)
           .median()
           .clip(geometry)
 
